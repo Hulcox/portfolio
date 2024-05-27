@@ -3,9 +3,9 @@ import { ModeToggle } from "./toggle-theme";
 const Navbar = () => {
   return (
     <div className="flex justify-center p-8">
-      <div className="flex justify-between items-center w-9/12">
+      <div className="flex justify-between items-center sm:w-2/5 w-4/5">
         {/*start*/}
-        <div>Romain Bidault</div>
+        <p>Romain Bidault</p>
         {/*middle*/}
         <div></div>
         {/*end*/}

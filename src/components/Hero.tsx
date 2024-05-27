@@ -1,18 +1,63 @@
 import Image from "next/image";
+import { Badge } from "./ui/badge";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import GradualSpacing from "./ui/gradualSpacing";
+import Link from "next/link";
 
 const Hero = () => {
   return (
     <div className="flex flex-col items-start gap-4">
       <div className="flex items-center gap-4">
-        <div className="w-16 h-16 bg-blue-600 rounded-full">RB</div>
-        <h4 className="text-2xl font-bold">Romain Bidault</h4>
+        <div className="w-14 h-14 bg-blue-600 rounded-full">
+          {/* <Image src={"/images/pp.png"} alt="profile picture" fill /> */}
+        </div>
+        <h3 className="text-2xl font-bold">Romain Bidault</h3>
       </div>
-      <h3 className="text-3xl italic">Developer FullStack</h3>
+      <GradualSpacing
+        text="Developer FullStack"
+        className="text-3xl italic"
+        duration={0.2}
+      />
       <div>
         <p>
           I create many //Applications// for my work and my personal projects.{" "}
         </p>
         <p>I am passionate, curious and creative</p>
+      </div>
+      <div className="flex sm:flex-row flex-col gap-4">
+        <Link href="https://github.com/Hulcox">
+          <Badge className="flex gap-2 w-min">
+            <FaGithub size={20} />
+            Github
+          </Badge>
+        </Link>
+        <Link href="https://www.linkedin.com/in/romain-bidault/">
+          <Badge className="flex gap-2 w-min">
+            <FaLinkedin size={20} />
+            LinkedIn
+          </Badge>
+        </Link>
+        <Link href="mailto:romainbidault08@gmail.com">
+          <Badge className="flex gap-2 w-min">
+            <SiGmail size={20} />
+            romainbidault08@gmail.com
+          </Badge>
+        </Link>
+        <Link href="tel:+33767661465">
+          <Badge className="flex gap-2 w-min">
+            <BsFillTelephoneFill size={20} />
+            <p>
+              <span>+33</span>
+              <span>&nbsp;7</span>
+              <span>&nbsp;67</span>
+              <span>&nbsp;66</span>
+              <span>&nbsp;14</span>
+              <span>&nbsp;65</span>
+            </p>
+          </Badge>
+        </Link>
       </div>
     </div>
   );

@@ -1,22 +1,19 @@
-"use client";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Skills from "@/components/skiils";
 import { Spotlight } from "@/components/ui/Spotlight";
-import { useTheme } from "next-themes";
 
 export default function Home() {
-  const { theme } = useTheme();
-
   return (
     <main className="min-h-screen">
-      <Spotlight
-        className="-top-40 left-0 md:left-60 md:-top-20"
-        fill={theme == "dark" ? "white" : "	#020202"}
-      />
+      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" />
       <Navbar />
-      <div className="flex justify-center">
-        <div className="w-1/2">
+      <div className="flex flex-col items-center justify-center">
+        <div className="sm:w-2/5 w-4/5 mt-8">
           <Hero />
+        </div>
+        <div className="sm:w-2/5 w-4/5 mt-28">
+          <Skills />
         </div>
       </div>
     </main>
