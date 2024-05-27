@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Projects from "@/components/Projects";
 import Skills from "@/components/skiils";
 import { Spotlight } from "@/components/ui/Spotlight";
 
@@ -12,8 +13,11 @@ export default function Home() {
         <div className="sm:w-2/5 w-4/5 mt-8">
           <Hero />
         </div>
-        <div className="sm:w-2/5 w-4/5 mt-28">
+        <div className="sm:w-2/5 w-4/5 mt-28 p-2">
           <Skills />
+        </div>
+        <div className="sm:w-2/5 w-4/5 mt-28 p-2">
+          <Projects />
         </div>
       </div>
     </main>

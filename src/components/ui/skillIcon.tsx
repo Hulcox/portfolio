@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, Variants, motion } from "framer-motion";
-import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useMemo, useState } from "react";
 
 const SkillIcon = ({
   text,
@@ -13,27 +13,47 @@ const SkillIcon = ({
   color?: string;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const characters = useMemo(() => text.split(""), [text]);
+
   return (
-    <div className="flex gap-4 items-center">
+    <motion.div
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      onTapStart={() => setIsHovered(true)}
+      onTap={() => setIsHovered(false)}
+      className="flex gap-4 items-center cursor-pointer"
+    >
       <motion.div
-        onHoverStart={() => setIsHovered(true)}
-        onHoverEnd={() => setIsHovered(false)}
-        onTapStart={() => setIsHovered(true)}
-        onTap={() => setIsHovered(false)}
-        whileHover={{ scale: 1.3, color: color ? color : "" }}
-        whileTap={{ scale: 1.3, color: color ? color : "" }}
+        animate={
+          isHovered ? { scale: 1.2, color: color } : { scale: 1, color: "" }
+        }
         className="flex aspect-square cursor-pointer items-center justify-center rounded-full bg-primary text-primary-foreground h-10 w-10"
       >
         {icon}
       </motion.div>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isHovered ? 1 : 0 }}
-        className="font-thin"
-      >
-        {text}
-      </motion.p>
-    </div>
+      <p className="flex justify-center space-x-1">
+        <AnimatePresence>
+          {characters.map((char, i) => (
+            <motion.span
+              key={i}
+              animate={{
+                color: isHovered ? color : "",
+                scale: isHovered ? 1.2 : 1,
+              }}
+              transition={{
+                yoyo: Infinity,
+                duration: 0.1,
+                delay: i * 0.01,
+              }}
+              className={cn("font-display text-center tracking-[-0.15em]")}
+            >
+              {char}
+            </motion.span>
+          ))}
+        </AnimatePresence>
+      </p>
+    </motion.div>
   );
 };
 

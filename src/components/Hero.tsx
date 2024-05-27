@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { Badge } from "./ui/badge";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
+import { FaGithub, FaLinkedin, FaUser } from "react-icons/fa";
+import { SiCisco, SiGmail, SiMongodb } from "react-icons/si";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import GradualSpacing from "./ui/gradualSpacing";
 import Link from "next/link";
+import { DiCisco } from "react-icons/di";
 
 const Hero = () => {
   return (
@@ -25,6 +26,29 @@ const Hero = () => {
           I create many //Applications// for my work and my personal projects.{" "}
         </p>
         <p>I am passionate, curious and creative</p>
+      </div>
+      <div>
+        <p>{"I'am certified in :"}</p>
+        <div className="m-4 flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center bg-primary text-primary-foreground h-6 w-6 rounded-full">
+              <FaUser />
+            </div>
+            <p>Scrum Master</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center bg-primary text-primary-foreground h-6 w-6 rounded-full">
+              <SiCisco size={20} />
+            </div>
+            Cisco
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center bg-primary text-primary-foreground h-6 w-6 rounded-full">
+              <SiMongodb size={20} />
+            </div>
+            Mongo DB
+          </div>
+        </div>
       </div>
       <div className="flex sm:flex-row flex-col gap-4">
         <Link href="https://github.com/Hulcox">
